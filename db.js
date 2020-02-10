@@ -3,3 +3,9 @@ const databaseURL =
   "postgres://postgres:secret@localhost:5432/postgres";
 const Sequelize = require("sequelize");
 const db = new Sequelize(databaseURL);
+
+db.sync()
+  .then(() => console.log("Database connected"))
+  .catch(console.error);
+
+module.exports = db;
